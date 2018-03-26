@@ -1,0 +1,55 @@
+version: '3'
+services:
+  # Define the Flask web application
+  app:
+    container_name: app_instance_001
+    # Build the Dockerfile that is in the web directory
+    build: ./src/server/
+
+    # Always restart the container regardless of the exit status; try and restart the container indefinitely
+    restart: always
+
+    # Expose port 3001 to other containers (not to the host of the machine)
+    expose:
+     - "3001"
+
+    # Mount the web directory within the container at /home/flask/app/web
+    volumes:
+     - ./src/server/:/usr/src/app
+
+    depends_on:
+     - mongo
+
+    links:
+     - mongo
+
+    # Pass environment variables to the flask container (this debug level lets you see more useful information)
+    environment:
+     APP_DEBUG: 1
+
+  # Define the redis NGINX forward proxy container
+  nginx:
+    container_name: nginx_instance_001
+    # build the nginx Dockerfile: http://bit.ly/2kuYaIv
+    build: nginx/
+    restart: always
+
+    # Expose port 80 to the host machine
+    ports:
+     - "80:80"
+    deploy:
+     mode: replicated
+     replicas: 3
+
+    # The Flask application needs to be available for NGINX to make successful proxy requests
+    depends_on:
+     - app
+
+  mongo:
+    container_name: mongo_instance_001
+    image: mongo:latest
+    command: mongod --port 27017
+    volumes:
+      - ./src/mongodb:/data/db
+    ports:
+      - "27017:27017"    

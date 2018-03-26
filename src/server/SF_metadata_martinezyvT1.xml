@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: SPMetadata.xml,v 1.3 2010/07/23 18:42:31 skalangi Exp $ -->
+<md:EntityDescriptor entityID="https://www.successfactors.com/martinezyvT1" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+>
+   <md:SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+         <ds:KeyInfo>
+            <ds:X509Data>
+               <ds:X509Certificate>
+MIICDTCCAXagAwIBAgIETAl/KDANBgkqhkiG9w0BAQUFADBLMQswCQYDVQQGEwJVUzEbMBkGA1UE
+ChMSU3VjY2Vzc2ZhY3RvcnMuY29tMQwwCgYDVQQLEwNPcHMxETAPBgNVBAMTCFNGIEFkbWluMB4X
+DTEwMDYwNDIyMzMxMloXDTI1MDYwMjIyMzMxMlowSzELMAkGA1UEBhMCVVMxGzAZBgNVBAoTElN1
+Y2Nlc3NmYWN0b3JzLmNvbTEMMAoGA1UECxMDT3BzMREwDwYDVQQDEwhTRiBBZG1pbjCBnzANBgkq
+hkiG9w0BAQEFAAOBjQAwgYkCgYEAkS3xlwL9v/5kHmfnW0fy2JzIDvHKK4TmkZYHN+JHBLRRzNtl
+Go1f4yUseMjVn4RF1W11uEqnBySokXv5FYoPd1guJ1Xt3u2Xnj52l/lG4S7ichsPwF3ddDk+pWbK
+F29Ixt0iBN+keknSRyNGdh9jtOekCg6xq4i4YndwKCucABUCAwEAATANBgkqhkiG9w0BAQUFAAOB
+gQBzhTmtBbnXpT1aTWDa3PRUx8fWTx/oPjL7xP+WeoTJZmeY4N1c6Q3aZ+u+MhxvmhyDTGo43pyy
+FVBQjiFzrZUEAAPUrLr7M0e4kGULhxE1p2jnBNfzmVYK397+QPHD2kN/BIzVcMBFsrS+fpdDGWnz
+j1hjuGLNO/XuPO9eSBRkZA==</ds:X509Certificate>
+            </ds:X509Data>
+         </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" ResponseLocation="https://hcm19preview.sapsf.com/saml2/LogoutServiceHTTPRedirectResponse?company=martinezyvT1" Location="https://hcm19preview.sapsf.com/saml2/LogoutServiceHTTPRedirect?company=martinezyvT1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://hcm19preview.sapsf.com/saml2/SAMLAssertionConsumer?company=martinezyvT1" index="0"/>
+   </md:SPSSODescriptor>
+   <md:Organization>
+      <md:OrganizationName xml:lang="en">SuccessFactors</md:OrganizationName>
+      <md:OrganizationURL xml:lang="en">http://www.successfactors.com</md:OrganizationURL>
+   </md:Organization>
+</md:EntityDescriptor>
